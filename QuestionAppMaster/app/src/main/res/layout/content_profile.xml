@@ -1,0 +1,94 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF00"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="300pt"
+        android:layout_height="50pt"
+        android:src="#303F9F" />
+
+    <ImageView
+        android:id="@+id/imgShow"
+        android:layout_width="100dp"
+        android:layout_height="85dp"
+        android:src="@drawable/emblem"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="76dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imgBirthday" />
+
+    <ImageView
+    android:id="@+id/imgBirthday"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/birthdayicon"
+    android:layout_below="@id/imgShow"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"/>
+
+    <TextView
+    android:id="@+id/lblBirthday"
+    android:text="20th April 1994"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_toRightOf="@id/imgBirthday"
+    android:layout_alignTop="@id/imgBirthday"
+    android:layout_alignBottom="@id/imgBirthday"
+    android:gravity="center_vertical"
+    android:textSize="22sp"
+    android:textColor="#000000"
+    />
+
+    <ImageView
+    android:id="@+id/imgLocation"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/globeicon"
+    android:layout_below="@id/imgBirthday"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"/>
+
+    <TextView
+    android:id="@+id/lblLocation"
+    android:text="Bath, United Kingdom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_toRightOf="@id/imgLocation"
+    android:layout_alignTop="@id/imgLocation"
+    android:layout_alignBottom="@id/imgLocation"
+    android:gravity="center_vertical"
+    android:textSize="22sp"
+    android:textColor="#000000"
+    />
+
+    <ImageView
+    android:id="@+id/imgTwitter"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/facebookicon"
+    android:layout_below="@id/imgLocation"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"/>
+
+    <TextView
+    android:id="@+id/lblTwitter"
+    android:text="Jacky Cheung"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_toRightOf="@id/imgTwitter"
+    android:layout_alignTop="@id/imgTwitter"
+    android:layout_alignBottom="@id/imgTwitter"
+    android:gravity="center_vertical"
+    android:textSize="22sp"
+    android:textColor="#000000"
+    />
+  </RelativeLayout>
