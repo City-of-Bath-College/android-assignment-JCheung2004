@@ -1,0 +1,83 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF00"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lblTitle"
+        android:text="Welcome to Jacky's questionnaire app!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblHighscore"
+        android:text="High score: 0"
+        android:layout_below="@id/lblTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:textSize="22sp"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/lblHighscore"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:text="Play!"
+        android:textSize="24sp"
+        android:layout_alignParentEnd="false"
+        android:background="#51fcff"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnHighscore"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnPlay"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:text="High Scores"
+        android:textSize="24sp"
+        android:background="#51fcff"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnHighscore"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:text="About"
+        android:textSize="24sp"
+        android:background="#51fcff"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imgPicture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/questionnaireimage"
+        android:layout_above="@id/lblTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"/>
+
+
+
+</RelativeLayout>

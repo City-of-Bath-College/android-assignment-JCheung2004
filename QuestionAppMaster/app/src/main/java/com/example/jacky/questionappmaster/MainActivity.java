@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
     private int index;
+    private int score;
+    private boolean expectedAnswer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         imgPicture.setImageResource(R.drawable.emblem);
 
         index = 0;
+        score = 0;
 
         btnFalse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +69,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTrue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         generateQuestions();
 
-        SetUpQuestion();
+        setUpQuestion();
 
 
     }
@@ -84,20 +80,20 @@ public class MainActivity extends AppCompatActivity {
         questions = new ArrayList<>();
             questions.add (new QuestionObject("Is the capital of England, London?", true, R.drawable.england));
             questions.add (new QuestionObject("Is the capital of France, Paris?", true, R.drawable.england));
-            questions.add (new QuestionObject("Is tokyo in China?", false, R.drawable.england));
-            questions.add (new QuestionObject("Are indian people asian?", true, R.drawable.england));
+            questions.add(new QuestionObject("Is tokyo in China?", false, R.drawable.england));
+            questions.add(new QuestionObject("Are indian people asian?", true, R.drawable.england));
             questions.add (new QuestionObject("Is the capital of Canada, Toronto?", false, R.drawable.england));
-            questions.add (new QuestionObject("Is Australia the same country as New Zealand?", false, R.drawable.england));
-            questions.add (new QuestionObject("Is the capital of Germany, Berlin?", false, R.drawable.england));
-            questions.add (new QuestionObject("Is the capital of England London?", true, R.drawable.england));
-            questions.add (new QuestionObject("Is 5x2 = 10?", true, R.drawable.england));
-            questions.add (new QuestionObject("Is the capital of China, Hong Kong?", true, R.drawable.england));
+            questions.add(new QuestionObject("Is Australia the same country as New Zealand?", false, R.drawable.england));
+            questions.add(new QuestionObject("Is the capital of Germany, Berlin?", false, R.drawable.england));
+            questions.add(new QuestionObject("Is the capital of England London?", true, R.drawable.england));
+            questions.add(new QuestionObject("Is 5x2 = 10?", true, R.drawable.england));
+            questions.add(new QuestionObject("Is the capital of China, Hong Kong?", true, R.drawable.england));
 
 
 
         }
 
-    private void SetUpQuestion(){
+    private void setUpQuestion(){
         currentQuestion = questions.get(index);
 
         lblQuestion.setText(currentQuestion.getQuestion());
@@ -106,5 +102,16 @@ public class MainActivity extends AppCompatActivity {
         index++;
     }
 
+    private void determineButtonPress (boolean answer){
+        boolean expectedAnswer = currentQuestion.isAnswer();
+
+        if (answer == expectedAnswer) {
+            Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            score++;
+        }
+        setUpQuestion();
+    }
 
     }
