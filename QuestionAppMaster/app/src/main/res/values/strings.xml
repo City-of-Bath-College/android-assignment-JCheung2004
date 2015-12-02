@@ -5,4 +5,7 @@
     <string name="title_activity_introduction">IntroductionActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_high_score_object">HighScoreObject</string>
+    <string name="title_activity_high_score">HighScoreActivity</string>
+    <string name="title_activity_row_highscore">row_highscore</string>
 </resources>

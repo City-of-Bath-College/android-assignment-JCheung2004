@@ -70,7 +70,7 @@
     />
 
     <ImageView
-    android:id="@+id/imgTwitter"
+    android:id="@+id/imgFacebook"
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:src="@drawable/facebookicon"
@@ -79,16 +79,16 @@
     android:layout_margin="20dp"/>
 
     <TextView
-    android:id="@+id/lblTwitter"
+    android:id="@+id/lblFacebook"
     android:text="Jacky Cheung"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginRight="15dp"
-    android:layout_toRightOf="@id/imgTwitter"
-    android:layout_alignTop="@id/imgTwitter"
-    android:layout_alignBottom="@id/imgTwitter"
+    android:layout_toRightOf="@id/imgFacebook"
+    android:layout_alignTop="@id/imgFacebook"
+    android:layout_alignBottom="@id/imgFacebook"
     android:gravity="center_vertical"
     android:textSize="22sp"
     android:textColor="#000000"
-    />
+        android:linksClickable="false" />
   </RelativeLayout>
