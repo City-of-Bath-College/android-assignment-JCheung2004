@@ -4,7 +4,7 @@ package com.example.jacky.questionappmaster;
  * Created by che14143708 on 02/12/2015.
  */
 public class HighScoreObject {
-    //nothing here!
+
     private int score;
     private String name;
     private Long timestamp;
@@ -30,3 +30,5 @@ public class HighScoreObject {
 
 
 }
+
+// this is a place where the highscores are stored momentarily, they act as a place for data types to be defined

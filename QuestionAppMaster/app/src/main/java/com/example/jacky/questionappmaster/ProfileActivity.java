@@ -29,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.setData(Uri.parse("https://www.facebook.com/jacky.cheung.733"));
                 startActivity(intent);
             }
-        });
+        }); // allows the facebook icon to be presed that takes you to my facebook page
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

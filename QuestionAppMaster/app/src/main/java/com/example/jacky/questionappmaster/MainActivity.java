@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         index = 0;
         score = 0;
-
+        // setting these variables to 0 so it doesn't carry over
         btnFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         questions.add(new QuestionObject("gq3VAAjegJ", R.drawable.kenya));
         questions.add(new QuestionObject("P2d1wy0W1y", R.drawable.germany));
         questions.add(new QuestionObject("hBtucyLHLy", R.drawable.earth));
-    }
+    }       // the IDs are IDs from my parse API which is stored online
     private void setUpQuestion() {
         if (index == questions.size()) {
             endgame();
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                     }
                 }
-            });
+            }); // this pulls values from parse
         }
     }
 
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (answer == expectedAnswer) {
             Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            score++;
+            score++;        // adds a score if the question is correct
         } else {
             Toast.makeText(MainActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
 
@@ -137,29 +137,20 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this); // declares builder which is going to be the prompt for users to type in their high scores
         builder.setTitle("Enter your name here:");
 
-// Set up the input
+
         final EditText input = new EditText(MainActivity.this);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         builder.setView(input);
         builder.setCancelable(false);
 
-// Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                username = input.getText().toString(); // user types in their name here
-
-                // new high score!
-                HighScoreObject highScore = new HighScoreObject(score, username, new Date().getTime());
-
-                // get user prefs
+                username = input.getText().toString();
+                // a box that allows the user to enter their name when they finish teh game
+                HighScoreObject highScore = new HighScoreObject(score, username, new Date().getTime()); // data types all defined within highscore object
                 List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
-
-                // add item
                 highScores.add(highScore);
-
-                // this is ordering the highscores from highest to lowest
                 Collections.sort(highScores, new Comparator<HighScoreObject>() {
                     public int compare(HighScoreObject a, HighScoreObject b) {
 
@@ -169,14 +160,11 @@ public class MainActivity extends AppCompatActivity {
                             return -1;
                         } else {
                             return 0;
-                        }
+                        }// shows the highscores descending order
                     }
                 });
 
-
-                // save again
-                Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
-
+                Paper.book().write("highscores", highScores); // saves it to the paper source
                 finish();
 
 

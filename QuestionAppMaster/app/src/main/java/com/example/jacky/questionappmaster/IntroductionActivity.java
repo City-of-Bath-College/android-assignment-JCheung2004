@@ -23,6 +23,7 @@ public class IntroductionActivity extends AppCompatActivity {
     private Button btnAbout;
     private TextView lblHighscore;
     private int highscore;
+    // defining varables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,20 +35,21 @@ public class IntroductionActivity extends AppCompatActivity {
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
+        // pulls from the parse API that has been made
 
         lblHighscore = (TextView)findViewById(R.id.lblHighscore);
         btnPlay = (Button)findViewById(R.id.btnPlay);
         btnHighscore = (Button) findViewById(R.id.btnHighscore);
         btnAbout = (Button) findViewById(R.id.btnAbout);
-
+        // initialising variab;es
         Paper.init(this);
-
+        // loading highscores
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(IntroductionActivity.this, MainActivity.class);
                 startActivity(i);
-
+            // button starts the game
             }
 
         });
@@ -59,7 +61,7 @@ public class IntroductionActivity extends AppCompatActivity {
                 Intent i = new Intent(IntroductionActivity.this, HighScoreActivity.class);
                 startActivity(i);
             }
-        });
+        }); // opens up the high score list
 
 
         btnAbout.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +70,7 @@ public class IntroductionActivity extends AppCompatActivity {
                 Intent i = new Intent(IntroductionActivity.this, ProfileActivity.class);
                 startActivity(i);
             }
-        });
+        });     /// opens the about section
     }
 
     @Override
@@ -78,12 +80,11 @@ public class IntroductionActivity extends AppCompatActivity {
 
         highscore = 0;
 
-        // if no highscores are found, set the value to 0
         if (highScores.size() == 0) {
 
             lblHighscore.setText("High Score: 0");
         } else {
             lblHighscore.setText("High Score: " + highScores.get(0).getName() + (" - ") + highScores.get(0).getScore());
         }
-    }
+    }   /// this function  loads the highest highscore within the paper source and finds their name and shows it on the front of the app
 }

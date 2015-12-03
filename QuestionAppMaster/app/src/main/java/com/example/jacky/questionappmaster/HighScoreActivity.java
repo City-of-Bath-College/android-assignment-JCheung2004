@@ -28,7 +28,7 @@ public class HighScoreActivity extends AppCompatActivity {
     private List<HighScoreObject> highscores;
 
     private Button btnReset;
-
+    // initialising variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +37,11 @@ public class HighScoreActivity extends AppCompatActivity {
         listview = (ListView) findViewById(R.id.listView);
 
         Paper.init(this);
-
+        // loads the external 'paper' source that keeps the highscores
         highscores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
-
+        // reads from the paper source
         HighscoreAdapter adapter = new HighscoreAdapter(highscores);
-
+        // puts the paper score into the variable that will be shown
         listview.setAdapter(adapter);
         btnReset = (Button) findViewById(R.id.btnReset); // Reset Button
         btnReset.setOnClickListener(new View.OnClickListener() {
@@ -67,14 +67,13 @@ public class HighScoreActivity extends AppCompatActivity {
                         R.layout.row_highscore, null);
             }
 
-            //get the highscore object for the row we're looking at
             HighScoreObject highscore = highscores.get(position);
             Date date = new Date(highscore.getTimestamp());
             SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
             TextView lblTitle = (TextView)convertView.findViewById(R.id.lblTitle);
             lblTitle.setText(highscore.getScore() + " - " + highscore.getName() + " - " + fmtOut.format(date));
             return convertView;
-        }// end get view
+        }   // gets the highscores and the time that the game was played at
 
     }// end adapter class
 
